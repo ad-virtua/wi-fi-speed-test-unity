@@ -92,8 +92,7 @@ public class MultiStreamDownloadTest : MonoBehaviour
         textRect.anchorMax = new Vector2(0, 1);
         textRect.pivot = new Vector2(0, 1);
         textRect.anchoredPosition = new Vector2(10, -10);
-        // 表示領域を拡大
-        textRect.sizeDelta = new Vector2(1000, 800);
+        textRect.sizeDelta = new Vector2(1000, 800); // 広めに確保
 
         // URL入力フィールド
         GameObject urlGO = new GameObject("URLInput");
@@ -233,6 +232,9 @@ public class MultiStreamDownloadTest : MonoBehaviour
 
     public void StartTest()
     {
+        // ボタン非表示
+        startButton.gameObject.SetActive(false);
+
         string urlInput = urlInputField.text;
         if (!string.IsNullOrEmpty(urlInput))
         {
